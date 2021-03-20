@@ -1,0 +1,75 @@
+{% extends "app/base.html" %}
+  {% block body_block %}
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "js/leftright_info.js" %}"></script>
+    <div class="container">
+      <div class="newsbar">
+        <div class="leftarrow">
+          <img src="{% static "img/app/left-arrow.svg" %}" alt="left arrow">
+        </div>
+
+        {% if newsinfo %}
+          {% for n in newsinfo %}
+          <div class="newsdiv">
+            <p>{{ n.description }}</p>
+            <img src="{{ n.image.url }}" alt="informations">
+          </div>
+          {% endfor %}
+        {% else %}
+          <div class="newsdiv">
+            <p>Brak aktualności</p>
+          </div>
+        {% endif %}
+
+        <div class="rightarrow">
+          <img src="{% static "img/app/right-arrow.svg" %}" alt="right arrow">
+        </div>
+      </div>
+      <div class="descriptionpanel">
+        <div class="service1">
+          <!-- onclick="location.href='{% url 'app:about' %}'" -->
+          <img src="{% static "img/app/service1.svg" %}" alt="diagnostic">
+        </div>
+        <p id="pservice1">DIAGNOSTYKA</p>
+        <div class="service2">
+          <img src="{% static "img/app/service2.svg" %}" alt="diagnostic">
+        </div>
+        <p id="pservice2">JASKRA</p>
+        <div class="service3">
+          <img src="{% static "img/app/service3.svg" %}" alt="diagnostic">
+        </div>
+        <p id="pservice3">ZAĆMA</p>
+        <div class="service4">
+          <img src="{% static "img/app/service4.svg" %}" alt="diagnostic">
+        </div>
+        <p id="pservice4">LECZENIE</p>
+        <div class="descimgbackground"></div>
+        <img src="{% static "img/app/description.jpg" %}" alt="" id="descimg">
+        <h1 id="desch">Pozwól nam zatroszczyć się o twoje oczy</h1>
+        <p id="descp">
+          Wzrok jest najważniejszym z ludzkich zmysłów, bez którego nie możemy
+          normalnie funkcjonować. Dzięki zdolności widzenia najlepiej poruszamy się
+          w otaczającym świecie, a wrażenia zdobywane w ten sposób decydują o naszej radości
+          i chęci życia. Wzrok decyduje o estetyce jaką nadajemy sobie i swoim działaniom, a także
+          jaką oceniamy u innych oraz w otoczeniu. Widzenie zawdzięczamy oczom.
+          Ten skomplikowany i delikatny narząd, którego budowę człowiekowi udało się poznać
+          najpóźniej ze wszystkich, służy każdemu przez kilkadziesiąt lat i mimo postępu
+          techniki pozostaje niezastąpiony. Oko ulega chorobom jak każdy inny organ,
+          z powodu wieku, trybu życia lub z przyczyn genetycznych. Jego profilaktykę i leczenie
+          warto powierzać najlepszym specjalistom medycyny okulistycznej, do których z pewnością
+          należymy.
+        </p>
+      </div>
+      <div class="extrapanel">
+        <div class="extragalery">
+          <img src="{% static "img/app/galery.jpg" %}" alt="galery">
+          <h1>Nasza praca</h1>
+        </div>
+        <div class="extraregister">
+          <img src="{% static "img/app/createacc.jpg" %}" alt="create account">
+          <h1>Dołącz do nas</h1>
+        </div>
+      </div>
+    </div>
+  {% endblock %}

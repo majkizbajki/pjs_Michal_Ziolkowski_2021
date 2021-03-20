@@ -1,0 +1,354 @@
+.container{
+  width:100%;
+  height: 1700px;
+  position: absolute;
+  top: 226px;
+  left: 0;
+}
+.newsbar{
+  width:100%;
+  height: 300px;
+  background-color: rgba(0, 180, 216, 1);
+}
+.leftarrow{
+  /* left-arrow */
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 0px;
+  top: 120px;
+  cursor: pointer;
+  filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(154deg) brightness(103%) contrast(101%);
+}
+.newsdiv{
+  position: absolute;
+  width: 90%;
+  height: 300px;
+  left: 5%;
+  z-index: 1;
+  display: none;
+}
+.newsdiv img{
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 70%;
+}
+.newsdiv p{
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+}
+.rightarrow{
+  /* right-arrow */
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 0px;
+  top: 120px;
+  cursor: pointer;
+  filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(154deg) brightness(103%) contrast(101%);
+}
+.descriptionpanel{
+  /* descriptionpanel */
+  position: absolute;
+  width: 100%;
+  height: 980px;
+  left: 0px;
+  top: 300px;
+
+  background: #DADADA;
+}
+.service1{
+  /* service1 */
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 14%;
+  top: 41px;
+  cursor: pointer;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.service1 img{
+  /* service1 logo */
+  width: 140px;
+  height: 140px;
+  margin-top: 20px;
+  margin-left: 20px;
+  filter: invert(36%) sepia(2%) saturate(21%) hue-rotate(317deg) brightness(99%) contrast(97%);
+}
+#pservice1{
+  /* DIAGNOSTYKA */
+  position: absolute;
+  width: 153px;
+  height: 35px;
+  left: 14.8%;
+  top: 223px;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #0077B6;
+}
+.service2{
+  /* service2 */
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 34%;
+  top: 41px;
+  cursor: pointer;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.service2 img{
+  /* service2 logo */
+  width: 140px;
+  height: 140px;
+  margin-top: 20px;
+  margin-left: 20px;
+  filter: invert(36%) sepia(2%) saturate(21%) hue-rotate(317deg) brightness(99%) contrast(97%);
+}
+#pservice2{
+  /* JASKRA */
+  position: absolute;
+  width: 153px;
+  height: 35px;
+  left: 36.8%;
+  top: 223px;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #0077B6;
+}
+.service3{
+  /* service3 */
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 54%;
+  top: 41px;
+  cursor: pointer;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.service3 img{
+  /* service3 logo */
+  width: 140px;
+  height: 140px;
+  margin-top: 20px;
+  margin-left: 20px;
+  filter: invert(36%) sepia(2%) saturate(21%) hue-rotate(317deg) brightness(99%) contrast(97%);
+}
+#pservice3{
+  /* ZACMA */
+  position: absolute;
+  width: 153px;
+  height: 35px;
+  left: 57%;
+  top: 223px;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #0077B6;
+}
+.service4{
+  /* service4 */
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 74%;
+  top: 41px;
+  cursor: pointer;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.service4 img{
+  /* service4 logo */
+  width: 140px;
+  height: 140px;
+  margin-top: 20px;
+  margin-left: 20px;
+  filter: invert(36%) sepia(2%) saturate(21%) hue-rotate(317deg) brightness(99%) contrast(97%);
+}
+#pservice4{
+  /* LECZENIE */
+  position: absolute;
+  width: 153px;
+  height: 35px;
+  left: 76.2%;
+  top: 223px;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #0077B6;
+}
+.service1:hover, .service2:hover, .service3:hover, .service4:hover{
+  background-color: #FFD578;
+}
+.descimgbackground{
+  position: absolute;
+  width: 520px;
+  height: 360px;
+  right: 240px;
+  top: 420px;
+  background-color: #adb5bd;
+}
+#descimg{
+  position: absolute;
+  width: 520px;
+  height: 360px;
+  right: 270px;
+  top: 450px;
+}
+#desch{
+  position: absolute;
+  width: 550px;
+  height: 35px;
+  left: 16%;
+  top: 380px;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #343a40;
+}
+#descp{
+  position: absolute;
+  width: 700px;
+  height: 35px;
+  left: 10%;
+  top: 620px;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #343a40;
+}
+.extrapanel{
+  position: absolute;
+  width: 100%;
+  height: 450px;
+  left: 0;
+  top: 1250px;
+  background-color: #0077B6;
+}
+.extragalery{
+  position: absolute;
+  left: 240px;
+  top: 62px;
+  width: 580px;
+  height: 326px;
+}
+.extragalery h1{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+}
+.extragalery img{
+  width: 100%;
+  height: 100%;
+  opacity: 65%;
+}
+.extraregister{
+  position: absolute;
+  left: 1020px;
+  top: 62px;
+  width: 580px;
+  height: 326px;
+}
+.extraregister h1{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+}
+.extraregister img{
+  width: 100%;
+  height: 100%;
+  opacity: 65%;
+}

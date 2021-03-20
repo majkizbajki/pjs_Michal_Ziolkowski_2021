@@ -1,0 +1,9 @@
+$(document).ready(function(){
+  $(".newsdiv").first().css("display","block");
+  $(".rightarrow").on("click",function(){
+    $(".newsdiv").css("display","none").next().css("display","block");
+  })
+  $(".leftarrow").on("click",function(){
+    $(".newsdiv").css("display","none").prev().css("display","block");
+  })
+});

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href={% static "css/app/main.css" %}>
+    <link rel="stylesheet" href={% static "css/app/home.css" %}>
+    <!-- Teko font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+    <!-- Orbitron font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <!-- Sniglet font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap" rel="stylesheet">
+    <!-- Cairo fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    <title>Opti Plus</title>
+  </head>
+  <body>
+    <div class="topbar">
+      <img src="{% static "img/app/eye.svg" %}" alt="Logo Opti Plus" id="eyelogo">
+      <h1>OPTI +</h1>
+      <h2>CZAS NA TWÓJ WZROK</h2>
+    </div>
+    <div class="navbar">
+      <a href="{% url 'index' %}"><img src="{% static "img/app/home.svg" %}" alt="Home logo" id="homelogo"></a>
+      <a href="{% url 'app:about' %}"><p id="onas" class="underline">O nas</p></a>
+      <a href=""><p id="uslugi" class="underline">Usługi</p></a>
+      <a href=""><p id="cennik" class="underline">Cennik</p></a>
+      <a href=""><p id="galeria" class="underline">Galeria</p></a>
+      <a href=""><p id="kontakt" class="underline">Kontakt</p></a>
+      <a href=""><img src="{% static "img/app/account.svg" %}" alt="Account logo" id="accountlogo"></a>
+      <a href=""><img src="{% static "img/app/logout.svg" %}" alt="Account logo" id="logoutlogo"></a>
+    </div>
+
+    {% block body_block %}
+    {% endblock %}
+
+    <div class="botbar">
+      <ul class="botbarnav">
+        <li>O nas
+          <ul>
+            <li><a href="">Poznaj nas</a></li>
+          </ul>
+        </li>
+        <li>Usługi
+          <ul>
+            <li><a href="">Diagnostyka</a></li>
+            <li><a href="">Jaskra</a></li>
+            <li><a href="">Zaćma</a></li>
+            <li><a href="">Leczenie</a></li>
+          </ul>
+        </li>
+        <li>Cennik
+          <ul>
+            <li><a href="">Aktualny cennik</a></li>
+          </ul>
+        </li>
+        <li>Kontakt
+          <ul>
+            <li><a href="">Dane kontaktowe</a></li>
+            <li><a href="">Znajdź nas na mapie</a></li>
+          </ul>
+        </li>
+        <li>Konto
+          <ul>
+            <li><a href="">Załóż konto</a></li>
+            <li><a href="">Zaloguj się</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </body>
+  <script>
+    let container_height = document.querySelector(".container").clientHeight;
+    let top_bar = 147;
+    let nav_bar = 79;
+    let test = document.documentElement.clientHeight;
+    console.log(test);
+    document.querySelector(".botbar").style.top = container_height+top_bar+nav_bar+"px";
+  </script>
+</html>
