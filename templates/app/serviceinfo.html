@@ -1,0 +1,9 @@
+{% extends "app/services.html" %}
+{% load static %}
+  {% block servicesinfo_block %}
+    <h1 id="hinfo">NACIŚNIJ KAFELEK, ABY DOWIEDZIEĆ SIĘ WIĘCEJ</h1>
+    <img src="{% static "img/app/left.svg" %}" alt="" id="leftinfo">
+    <img src="{% static "img/app/right.svg" %}" alt="" id="rightinfo">
+    <img src="{% static "img/app/increase.svg" %}" alt="" id="increaseinfo">
+    <img src="{% static "img/app/decrease.svg" %}" alt="" id="decreaseinfo">
+  {% endblock %}

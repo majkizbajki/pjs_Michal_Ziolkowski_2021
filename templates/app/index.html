@@ -1,8 +1,11 @@
 {% extends "app/base.html" %}
+{% load static %}
+  {% block head_block %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static "js/leftright_info.js" %}"></script>
+  <link rel="stylesheet" href={% static "css/app/home.css" %}>
+  {% endblock %}
   {% block body_block %}
-    {% load static %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="{% static "js/leftright_info.js" %}"></script>
     <div class="container">
       <div class="newsbar">
         <div class="leftarrow">
@@ -27,20 +30,20 @@
         </div>
       </div>
       <div class="descriptionpanel">
-        <div class="service1">
+        <div class="service1" onclick="document.location.href='services/diagnostyka'">
           <!-- onclick="location.href='{% url 'app:about' %}'" -->
           <img src="{% static "img/app/service1.svg" %}" alt="diagnostic">
         </div>
         <p id="pservice1">DIAGNOSTYKA</p>
-        <div class="service2">
+        <div class="service2" onclick="document.location.href='services/jaskra'">
           <img src="{% static "img/app/service2.svg" %}" alt="diagnostic">
         </div>
         <p id="pservice2">JASKRA</p>
-        <div class="service3">
+        <div class="service3" onclick="document.location.href='services/zacma'">
           <img src="{% static "img/app/service3.svg" %}" alt="diagnostic">
         </div>
         <p id="pservice3">ZAĆMA</p>
-        <div class="service4">
+        <div class="service4" onclick="document.location.href='services/leczenie'">
           <img src="{% static "img/app/service4.svg" %}" alt="diagnostic">
         </div>
         <p id="pservice4">LECZENIE</p>

@@ -1,0 +1,53 @@
+.container{
+  position: absolute;
+  left: 0;
+  top: 226px;
+  width: 100%;
+  background-color: #E5E5E5;
+}
+.diagnostyka{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 70%;
+  text-align: center;
+  background-color: #B6B6B6;
+  border-collapse: collapse;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #ffffff;
+}
+.leczenie{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 70%;
+  text-align: center;
+  background-color: #B6B6B6;
+  border-collapse: collapse;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #ffffff;
+}
+th{
+  background-color: #0077B6;
+  border: 5px solid #0077B6;
+}
+th:first-of-type{
+  width: 70%;
+}
+td{
+  background-color: #00B4D8;
+  border: 5px solid #0077B6;
+}
+tr:last-of-type{
+    margin-bottom: 200px;
+}

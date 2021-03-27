@@ -1,8 +1,16 @@
 {% extends "app/base.html" %}
+{% load static %}
+  {% block head_block %}
+  <link rel="stylesheet" href={% static "css/app/about.css" %}>
+  {% endblock %}
   {% block body_block %}
-    <h1>ABOUT PAGE</h1>
-    <h2>This is an example</h2>
-    <div class="container" style="height: 800px;">
-
+    <div class="container">
+      <div class="bluebar"></div>
+      <div class="backgroundcenter">
+        <h1>O nas</h1>
+        <p id="aboutinfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus dictum at tempor commodo ullamcorper a. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Ut diam quam nulla porttitor massa id neque. Neque ornare aenean euismod elementum nisi quis. Risus sed vulputate odio ut enim. Mauris ultrices eros in cursus. Lacus viverra vitae congue eu consequat ac felis donec. Ultrices in iaculis nunc sed augue lacus. Tincidunt vitae semper quis lectus nulla at volutpat. Sit amet consectetur adipiscing elit ut aliquam purus. Fusce id velit ut tortor.</p>
+      </div>
+      <img src="{% static "img/app/aboutoptician.jpg" %}" alt="" id="backopt">
+      <img src="{% static "img/app/aboutoptician.jpg" %}" alt="" id="forwopt">
     </div>
   {% endblock %}

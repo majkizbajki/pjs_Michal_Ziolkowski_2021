@@ -1,0 +1,166 @@
+.container{
+  position: absolute;
+  width: 100%;
+  height: 800px;
+  top: 226px;
+  left: 0;
+  background-color: #E5E5E5;
+}
+.lefttop{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 100px;
+  top: 100px;
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #0096C7 0%, #0077B6 100%);
+}
+.righttop{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  right: 100px;
+  top: 100px;
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #0096C7 0%, #0077B6 100%);
+}
+.leftbottom{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 100px;
+  bottom: 100px;
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #0077B6 0%, #03045E 100%);
+}
+.rightbottom{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  right: 100px;
+  bottom: 100px;
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #0077B6 0%, #03045E 100%);
+}
+.container > div > p{
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%,0%);
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+.centerinfo{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 50%;
+  height: 80%;
+
+  background: linear-gradient(180deg, #0096C7 0%, #03045E 100%);
+}
+.centerinfo h1{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0%);
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: underline;
+  color: #ffffff;
+}
+.imgbackground{
+  /* service1 */
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%,0%);
+  cursor: pointer;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.imgbackground img{
+  /* service1 logo */
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+  margin-left: 20px;
+  filter: invert(36%) sepia(2%) saturate(21%) hue-rotate(317deg) brightness(99%) contrast(97%);
+}
+#hinfo{
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%,-50%);
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+#leftinfo{
+  position: absolute;
+  left: 5%;
+  top: 15%;
+  width: 150px;
+  height: 150px;
+
+  filter: invert(100%) sepia(0%) saturate(3927%) hue-rotate(167deg) brightness(106%) contrast(111%);
+}
+#rightinfo{
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  width: 150px;
+  height: 150px;
+
+  filter: invert(100%) sepia(0%) saturate(3927%) hue-rotate(167deg) brightness(106%) contrast(111%);
+}
+#increaseinfo{
+  position: absolute;
+  right: 5%;
+  bottom: 15%;
+  width: 150px;
+  height: 150px;
+  transform: rotate(90deg);
+
+  filter: invert(100%) sepia(0%) saturate(3927%) hue-rotate(167deg) brightness(106%) contrast(111%);
+}
+#decreaseinfo{
+  position: absolute;
+  left: 5%;
+  bottom: 15%;
+  width: 150px;
+  height: 150px;
+
+  filter: invert(100%) sepia(0%) saturate(3927%) hue-rotate(167deg) brightness(106%) contrast(111%);
+}

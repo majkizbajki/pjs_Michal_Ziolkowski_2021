@@ -1,0 +1,37 @@
+{% extends "app/base.html" %}
+{% load static %}
+  {% block head_block %}
+  <link rel="stylesheet" href="{% static "css/app/pricelist.css" %}">
+  {% endblock %}
+  {% block body_block %}
+    <div class="container">
+      <table class="diagnostyka">
+        <thead>
+          <th>USŁUGA - DIAGNOSTYKA</th>
+          <th>CENA [ZŁ]</th>
+        </thead>
+        {% if priceinfod %}
+          {% for p in priceinfod %}
+            <tr>
+              <td>{{ p.name }}</td>
+              <td>{{ p.price }}</td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+      </table>
+      <table class="leczenie">
+        <thead>
+          <th>USŁUGA - LECZENIE</th>
+          <th>CENA [ZŁ]</th>
+        </thead>
+        {% if priceinfol %}
+          {% for p in priceinfol %}
+            <tr>
+              <td>{{ p.name }}</td>
+              <td>{{ p.price }}</td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+      </table>
+    </div>
+  {% endblock %}
