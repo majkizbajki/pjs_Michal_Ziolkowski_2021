@@ -14,7 +14,7 @@
   top: 100px;
   cursor: pointer;
 
-  background: linear-gradient(180deg, #0096C7 0%, #0077B6 100%);
+  background-color: #0096C7;
 }
 .righttop{
   position: absolute;
@@ -24,7 +24,7 @@
   top: 100px;
   cursor: pointer;
 
-  background: linear-gradient(180deg, #0096C7 0%, #0077B6 100%);
+  background-color: #0096C7;
 }
 .leftbottom{
   position: absolute;
@@ -34,7 +34,7 @@
   bottom: 100px;
   cursor: pointer;
 
-  background: linear-gradient(180deg, #0077B6 0%, #03045E 100%);
+  background-color: #0096C7;
 }
 .rightbottom{
   position: absolute;
@@ -44,7 +44,7 @@
   bottom: 100px;
   cursor: pointer;
 
-  background: linear-gradient(180deg, #0077B6 0%, #03045E 100%);
+  background-color: #0096C7;
 }
 .container > div > p{
   position: absolute;
@@ -71,7 +71,7 @@
   width: 50%;
   height: 80%;
 
-  background: linear-gradient(180deg, #0096C7 0%, #03045E 100%);
+  background-color: #0096C7;
 }
 .centerinfo h1{
   position: absolute;

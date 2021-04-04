@@ -22,7 +22,8 @@ from app import views
 urlpatterns = [
     path('',views.index,name='index'),
     path('admin/', admin.site.urls),
-    path('',include('app.urls'))
+    path('',include('app.urls')),
+    path('user_logout/',views.user_logout,name='user_logout'),
 ]
 
 if settings.DEBUG:

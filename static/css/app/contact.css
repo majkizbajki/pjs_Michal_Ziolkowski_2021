@@ -1,0 +1,60 @@
+.container{
+  position: absolute;
+  top: 226px;
+  left: 0;
+  width: 100%;
+  height: 800px;
+  background-color: #00B4D8;
+}
+#eyelogo{
+  position: absolute;
+  top: 100px;
+  left: 200px;
+  width: 200px;
+  height: 200px;
+}
+#titlelogo{
+  position: absolute;
+  top: 60px;
+  left: 420px;
+
+  font-family: Teko;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100px;
+  color: #ffffff;
+}
+iframe{
+  position: absolute;
+  bottom: 100px;
+  right: 200px;
+}
+.container .content{
+  position: absolute;
+  top: 350px;
+  left: 260px;
+}
+.container .content p{
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 5px;
+  text-align: center;
+}
+.container .content p:first-of-type{
+    font-size: 28px;
+    font-weight: bold;
+}
+#findus{
+  position: absolute;
+  top: 60px;
+  right: 280px;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  color: #ffffff;
+}

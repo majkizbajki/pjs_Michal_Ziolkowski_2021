@@ -205,6 +205,16 @@
   top: 18px;
   filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(154deg) brightness(103%) contrast(101%);
 }
+.navbar #loginlogo{
+  /* logoutlogo */
+
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  left: 96%;
+  top: 18px;
+  filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(154deg) brightness(103%) contrast(101%);
+}
 .navbar .underline:hover{
   text-decoration: underline;
 }

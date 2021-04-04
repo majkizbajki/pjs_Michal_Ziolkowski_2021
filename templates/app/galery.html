@@ -1,0 +1,32 @@
+{% extends "app/base.html" %}
+{% load static %}
+  {% block head_block %}
+  <link rel="stylesheet" href="{% static "css/app/galery.css" %}">
+  {% endblock %}
+  {% block body_block %}
+    <div class="container">
+      <div class="titlediv">
+        <h1>Kilka ujęć z naszych gabinetów</h1>
+      </div>
+      <div class="photodiv">
+        <div class="first">
+          <img src="{% static "img/app/galery/first.jpg" %}" alt="">
+        </div>
+        <div class="second">
+          <img src="{% static "img/app/galery/second.jpg" %}" alt="">
+        </div>
+        <div class="third">
+          <img src="{% static "img/app/galery/third.jpg" %}" alt="">
+        </div>
+        <div class="fourth">
+          <img src="{% static "img/app/galery/fourth.jpg" %}" alt="">
+        </div>
+        <div class="fifth">
+          <img src="{% static "img/app/galery/fifth.jpg" %}" alt="">
+        </div>
+        <div class="sixth">
+          <img src="{% static "img/app/galery/sixth.jpg" %}" alt="">
+        </div>
+      </div>
+    </div>
+  {% endblock %}

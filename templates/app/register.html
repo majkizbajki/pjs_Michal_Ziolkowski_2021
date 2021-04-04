@@ -1,0 +1,57 @@
+{% extends "app/base.html" %}
+{% load static %}
+  {% block head_block %}
+  <link rel="stylesheet" href="{% static "css/app/register.css" %}">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  {% endblock %}
+  {% block body_block %}
+  <div class="container">
+    {% if registered %}
+      <div class="gotologin">
+        <h1 id="registercomplete">Rejestracja przebegiegła pomyślnie! Teraz możesz się zalogować na swoje konto:</h1>
+        <button type="button" name="button" id="loginb" onclick=goToLoginPanel()>Zaloguj się</button>
+      </div>
+    {% else %}
+    <div class="backgroundpanel">
+      <div class="titlediv">
+        <div class="circle">
+          <img src="{% static "img/app/register/key.svg" %}" alt="">
+        </div>
+        <h1>Rejestracja</h1>
+      </div>
+      <div class="formpanel">
+        <form class="" method="post">
+          {% csrf_token %}
+          {{ user_form.first_name }}
+          {{ user_form.last_name }}
+          {{ user_form.username }}
+          {{ user_form.email }}
+          {{ user_form.password }}
+          {{ profile_form.gender }}
+          {{ profile_form.phone_number }}
+          {{ profile_form.birth_date }}
+          <input type="submit" name="" value="Zarejestruj się">
+        </form>
+        <p id="registerp">Masz już konto?</p>
+        <button type="button" name="button" id="registerb" onclick=goToLoginPanel()>Zaloguj się</button>
+      </div>
+    {% endif %}
+    </div>
+  </div>
+  {% endblock %}
+  {% block script_block %}
+    $("#id_first_name").attr('placeholder','Imię');
+    $("#id_last_name").attr('placeholder','Nazwisko');
+    $("#id_username").attr('placeholder','Nazwa użytkownika');
+    $("#id_email").attr('placeholder','E-mail');
+    $("#id_password").attr('placeholder','Hasło');
+    $("#id_phone_number").attr('placeholder','Numer telefonu');
+    $("#id_birth_date").attr('placeholder','Data urodzenia: RRRR-MM-DD');
+
+    function goToLoginPanel(){
+      window.location.href = "../user_login";
+    }
+  {% endblock %}

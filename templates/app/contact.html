@@ -1,0 +1,21 @@
+{% extends "app/base.html" %}
+{% load static %}
+  {% block head_block %}
+  <link rel="stylesheet" href="{% static "css/app/contact.css" %}">
+  {% endblock %}
+  {% block body_block %}
+  <div class="container">
+    <img src="{% static "img/app/eye.svg" %}" alt="Logo Opti Plus" id="eyelogo">
+    <h1 id="titlelogo">OPTI +</h1>
+    <div class="content">
+      <p>Optiplus Spółka z o.o.</p>
+      <p>ul. Długa 13A</p>
+      <p>12-345 Miasto</p>
+      <p>Polska</p>
+      <p>Telefon: 123456789</p>
+      <p>E-mail: optiplus@example.com</p>
+    </div>
+    <h1 id="findus">Znajdź nas na mapie</h1>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50075.284363550236!2d19.128411237179307!3d48.72921667251643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47153df859b0b157%3A0x24f057e541422f40!2sOptics%20OPTIPLUS!5e0!3m2!1spl!2spl!4v1617301975305!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+  {% endblock %}

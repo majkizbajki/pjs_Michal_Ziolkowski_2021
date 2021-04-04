@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date
 from datetime import datetime
+from django.contrib.auth.models import User
+from django.core.validators import RegexValidator
 
 # Create your models here.
 class News(models.Model):
@@ -33,3 +35,23 @@ class Services(models.Model):
 
     def __str__(self):
         return self.name
+
+class UserProfileInfo(models.Model):
+
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+
+    GENDER_CHOICES = (
+        ('M', 'Mężczyzna'),
+        ('K', 'Kobieta'),
+        )
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    phone_number = models.CharField(max_length=9,validators=[RegexValidator(r'^\d{1,10}$')])
+    birth_date = models.DateField()
+
+    # this makes my User Model fields required in registration panel
+    User._meta.get_field('email').blank = False
+    User._meta.get_field('first_name').blank = False
+    User._meta.get_field('last_name').blank = False
+
+    def __str__(self):
+        return self.user.get_full_name()
