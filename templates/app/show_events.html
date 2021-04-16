@@ -1,0 +1,24 @@
+{% extends "app/profile.html" %}
+{% load static %}
+  {% block head_block %}
+  <link rel="stylesheet" href="{% static "css/app/profile.css" %}">
+  <link rel="stylesheet" href="{% static "css/app/show_events.css" %}">
+  {% endblock %}
+  {% block profile_block %}
+  <div class="events_panel">
+    <div class="events_panel_title">Twoje zaplanowane wizyty</div>
+    <table>
+      <tr id="table_info">
+        <td>Lekarz</td>
+        <td>Data</td>
+        <td>Godzina</td>
+        <td>Odwołaj</td>
+      </tr>
+      <!-- Create Django codition here -->
+      <tr>
+        <td colspan="4" id="no_events">Brak zaplanowanych wizyt</td>
+      </tr>
+      <!-- End of condition -->
+    </table>
+  </div>
+  {% endblock %}

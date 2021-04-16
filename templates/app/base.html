@@ -34,7 +34,7 @@
       <a href="{% url 'app:galery' %}"><p id="galeria" class="underline">Galeria</p></a>
       <a href="{% url 'app:contact' %}"><p id="kontakt" class="underline">Kontakt</p></a>
       {% if user.is_authenticated %}
-      <a href="#"><img src="{% static "img/app/account.svg" %}" alt="Account logo" id="accountlogo"></a>
+      <a href="{% url 'app:personal_data' %}"><img src="{% static "img/app/account.svg" %}" alt="Account logo" id="accountlogo"></a>
       <a href="{% url 'user_logout' %}"><img src="{% static "img/app/logout.svg" %}" alt="Logout logo" id="logoutlogo"></a>
       {% else %}
       <a href="{% url 'app:user_login' %}"><img src="{% static "img/app/login.svg" %}" alt="Login logo" id="loginlogo"></a>
@@ -72,8 +72,8 @@
         </li>
         <li>Konto
           <ul>
-            <li><a href="">Załóż konto</a></li>
-            <li><a href="">Zaloguj się</a></li>
+            <li><a href="{% url 'app:register' %}">Załóż konto</a></li>
+            <li><a href="{% url 'app:user_login' %}">Zaloguj się</a></li>
           </ul>
         </li>
       </ul>

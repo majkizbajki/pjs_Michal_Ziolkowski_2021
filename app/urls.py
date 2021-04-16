@@ -17,4 +17,8 @@ urlpatterns = [
     path('contact/',views.contact,name='contact'),
     path('register/',views.register,name='register'),
     path('user_login/',views.user_login,name='user_login'),
+    path('profile/',views.profile,name='profile'),
+    path('profile/personal_data',views.personal_data,name='personal_data'),
+    path('profile/change_password',views.change_password,name='change_password'),
+    path('profile/show_events',views.show_events,name='show_events'),
 ]

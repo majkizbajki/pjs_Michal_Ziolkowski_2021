@@ -1,0 +1,119 @@
+.person_info{
+  position: absolute;
+  left: 700px;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+.person_info_title{
+  position: absolute;
+  left: 0px;
+  top: 100px;
+  width: 100%;
+  height: 100px;
+  background-color: #00B4D8;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  text-align: center;
+  color: #ffffff;
+}
+.person_info_tagnames{
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  width: 30%;
+  height: 70%;
+
+  background-color: #54596E;
+}
+.person_info_tagnames form{
+  width: 100%;
+}
+.person_info_labels form input[type=text],input[type=date] {
+  width: 70%;
+  height: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  text-align: center;
+
+  border: 3px solid #54596E;
+  border-radius: 10px;
+  outline: none;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  text-align: center;
+  color: #54596E;
+}
+.person_info_labels form select{
+  width: 70%;
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  text-indent: 170px;
+
+  border: 3px solid #54596E;
+  border-radius: 10px;
+  outline: none;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  text-align: center;
+  color: #54596E;
+}
+.person_info_labels form input[type=submit]{
+  width: 200px;
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+
+  border-radius: 10px;
+  border: 3px solid #54596E;
+  background-color: #0077B6;
+  outline: none;
+  cursor: pointer;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.person_info_labels{
+  position: absolute;
+  top: 200px;
+  left: 30%;
+  width: 70%;
+  height: 70%;
+
+  background-color: #B4D4FF;
+}
+.person_info_tagnames ul{
+  margin: 0px;
+  padding: 0;
+  list-style-type: none;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.person_info_tagnames li{
+  margin-top: 40px;
+}

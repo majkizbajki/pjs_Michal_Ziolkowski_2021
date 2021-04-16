@@ -1,0 +1,43 @@
+{% extends "app/profile.html" %}
+{% load static %}
+  {% block head_block %}
+  <link rel="stylesheet" href="{% static "css/app/profile.css" %}">
+  <link rel="stylesheet" href="{% static "css/app/personal_data.css" %}">
+  {% endblock %}
+  {% block profile_block %}
+  <div class="person_info">
+    <div class="person_info_title">Dane osobowe</div>
+    <div class="person_info_tagnames">
+      <ul>
+        <li>Imię</li>
+        <li>Nazwisko</li>
+        <li>E-mail</li>
+        <li>Numer telefonu</li>
+        <li>Data urodzenia</li>
+        <li>Płeć</li>
+      </ul>
+    </div>
+    <div class="person_info_labels">
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" name="first_name" value="{{first_name_value}}">
+        <input type="text" name="last_name" value="{{last_name_value}}">
+        <input type="text" name="email" value="{{email_value}}">
+        <input type="text" name="phone_number" value="{{phone_number_value}}">
+        <input type="date" name="birth_date" value="{{birth_date_value|date:'Y-m-d'}}">
+        {% if gender_value == "M" %}
+        <select name="gender">
+          <option value="{{gender_value}}">Mężczyzna</option>
+          <option value="K">Kobieta</option>
+        </select>
+        {% else %}
+        <select name="gender">
+          <option value="{{gender_value}}">Kobieta</option>
+          <option value="M">Mężczyzna</option>
+        </select>
+        {% endif %}
+        <input type="submit" name="save" value="Zapisz">
+      </form>
+    </div>
+  </div>
+  {% endblock %}

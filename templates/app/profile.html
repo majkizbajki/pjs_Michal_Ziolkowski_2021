@@ -1,0 +1,22 @@
+{% extends "app/base.html" %}
+{% load static %}
+  {% block head_block %}
+  <link rel="stylesheet" href="{% static "css/app/profile.css" %}">
+  {% endblock %}
+  {% block body_block %}
+    <div class="container">
+      <div class="profile_navbar">
+        <div class="profile_img">
+          <img src="{% static 'img/app/profile/user.svg' %}" alt="User photo">
+        </div>
+        <button onclick="window.location.href='{% url 'app:personal_data' %}'">Dane osobowe</button>
+        <button onclick="window.location.href='{% url 'app:change_password' %}'">Zmiana hasła</button>
+        <button>Zaplanuj wizytę</button>
+        <button onclick="window.location.href='{% url 'app:show_events' %}'">Twoje wizyty</button>
+        <h1 id="companyname">OPTI+</h1>
+      </div>
+      {% block profile_block %}
+
+      {% endblock %}
+    </div>
+  {% endblock %}

@@ -33,6 +33,11 @@
           {{ profile_form.gender }}
           {{ profile_form.phone_number }}
           {{ profile_form.birth_date }}
+          <p>
+          {% if error %}
+          {{ error }}
+          {% endif %}
+          </p>
           <input type="submit" name="" value="Zarejestruj się">
         </form>
         <p id="registerp">Masz już konto?</p>
@@ -54,4 +59,5 @@
     function goToLoginPanel(){
       window.location.href = "../user_login";
     }
+
   {% endblock %}
