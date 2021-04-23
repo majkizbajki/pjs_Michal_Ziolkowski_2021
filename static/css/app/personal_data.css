@@ -117,3 +117,23 @@
 .person_info_tagnames li{
   margin-top: 40px;
 }
+.errors{
+  position: absolute;
+  left: 450px;
+  top: 0;
+  width: 76.35%;
+  display: none;
+
+  text-align: center;
+  background-color: #FF7276;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.errors > h1{
+  display: none;
+}
