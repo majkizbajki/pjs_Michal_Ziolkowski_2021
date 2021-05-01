@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app.models import News, Services, UserProfileInfo
+from app.models import News, Services, UserProfileInfo, Event
 from app.forms import UserForm, UserProfileInfoForm
 from app.models import User
 
@@ -7,7 +7,10 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+
 import datetime
+from calendar import HTMLCalendar
+from app.utils import Calendar, cal
 
 # Create your views here.
 def index(request):
@@ -147,7 +150,7 @@ def personal_data(request):
         else:
             error += "Niepoprawne nazwisko. "
             error_type = 1
-        if User.objects.filter(email=request_email).count() == 0 and "@" in request_email and "." in request_email:
+        if User.objects.filter(email=request_email).count() == 0 or user.email == request_email and "@" in request_email and "." in request_email:
             user.email = request_email
         else:
             error += "Niepoprawny lub już istniejący email. "
@@ -176,7 +179,7 @@ def personal_data(request):
                                                     "birth_date_value":birth_date_value,
                                                     "gender_value":gender_value,
                                                     "error":error,
-                                                    "error_type": error_type});
+                                                    "error_type": error_type})
 
 def change_password(request):
     u = request.user
@@ -211,7 +214,48 @@ def change_password(request):
             error_type = 1
 
     return render(request,"app/change_password.html",{"error":error,
-                                                      "error_type":error_type});
+                                                      "error_type":error_type})
 
 def show_events(request):
-    return render(request,"app/show_events.html");
+    return render(request,"app/show_events.html")
+
+def calendarView(request):
+    actuall_day = cal.temp_day
+    actuall_month = cal.temp_month
+    actuall_month_string = cal.temp_month_string
+    actuall_year = cal.temp_year
+    tc= HTMLCalendar(firstweekday=0)
+
+    return render(request,"app/calendar.html",{"actuall_day":cal.actuall_day,
+                                               "actuall_month":cal.actuall_month,
+                                               "actuall_month_string":cal.actuall_month_string,
+                                               "actuall_year":cal.actuall_year,
+                                               "HTML_Calendar":tc.formatmonth(cal.actuall_year, cal.actuall_month),
+                                               })
+
+def increase_month(request):
+    cal.temp_day = 1
+    cal.increase_month()
+    cal.temp_month_string = cal.months[cal.temp_month]
+    tc= HTMLCalendar(firstweekday=0)
+    return render(request,"app/calendar.html",{"actuall_day":cal.temp_day,
+                                               "actuall_month":cal.temp_month,
+                                               "actuall_month_string":cal.temp_month_string,
+                                               "actuall_year":cal.temp_year,
+                                               "HTML_Calendar":tc.formatmonth(cal.temp_year, cal.temp_month),
+                                               })
+
+def decrease_month(request):
+    cal.temp_day = 1
+    cal.decrease_month()
+    cal.temp_month_string = cal.months[cal.temp_month]
+    tc= HTMLCalendar(firstweekday=0)
+    return render(request,"app/calendar.html",{"actuall_day":cal.temp_day,
+                                               "actuall_month":cal.temp_month,
+                                               "actuall_month_string":cal.temp_month_string,
+                                               "actuall_year":cal.temp_year,
+                                               "HTML_Calendar":tc.formatmonth(cal.temp_year, cal.temp_month),
+                                               })
+
+def reservation(request):
+    return render(request,"app/reservation.html",{})

@@ -4,6 +4,8 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 
+from django.urls import reverse
+
 # Create your models here.
 class News(models.Model):
     topic = models.CharField(max_length=200,unique=True)
@@ -55,3 +57,12 @@ class UserProfileInfo(models.Model):
 
     def __str__(self):
         return self.user.get_full_name()
+
+class Event(models.Model):
+    title = models.ForeignKey(Services,on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Workers,on_delete=models.CASCADE)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+
+    def __str__(self):
+      return self.title

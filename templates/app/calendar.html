@@ -1,0 +1,55 @@
+{% extends "app/profile.html" %}
+{% load static %}
+
+  {% block head_block %}
+    <link rel="stylesheet" href="{% static "css/app/profile.css" %}">
+    <link rel="stylesheet" href="{% static "css/app/calendar.css" %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  {% endblock %}
+
+  {% block profile_block %}
+    <div class="calendar">
+      {% if HTML_Calendar %}
+        {{ HTML_Calendar|safe }}
+      {% endif %}
+      <div class="leftarrow">
+        <img src="{% static "img/app/left-arrow.svg" %}" alt="left arrow">
+      </div>
+      <div class="rightarrow">
+        <img src="{% static "img/app/right-arrow.svg" %}" alt="right arrow">
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block script_block %}
+
+    $(".calendar table tr:nth-of-type(1) th:nth-of-type(1)").text("{{ actuall_month_string }} {{ actuall_year }}");
+    $(".calendar table tr:nth-of-type(2) th:nth-of-type(1)").text("PON");
+    $(".calendar table tr:nth-of-type(2) th:nth-of-type(2)").text("WT");
+    $(".calendar table tr:nth-of-type(2) th:nth-of-type(3)").text("ŚR");
+    $(".calendar table tr:nth-of-type(2) th:nth-of-type(4)").text("CZW");
+    $(".calendar table tr:nth-of-type(2) th:nth-of-type(5)").text("PT");
+    $(".calendar table tr:nth-of-type(2) th:nth-of-type(6)").text("SOB");
+    $(".calendar table tr:nth-of-type(2) th:nth-of-type(7)").text("NDZ");
+
+
+    if( $(".calendar table td").attr("class")=="noday" ){
+      $(this).css("cursor","not-allowed");
+    }
+
+    $(".rightarrow").on("click",function(){
+      window.location.href = "increase_month";
+    })
+
+    $(".leftarrow").on("click",function(){
+      window.location.href = "decrease_month";
+    })
+
+
+    $(".calendar table td").on("click",function(){
+      if( $(this).attr("class")!="noday" ){
+        window.location.href = '{% url 'app:reservation' %}'
+      }
+    })
+  <!-- Jquery script to color td to red/green when (not)available term -->
+  {% endblock %}

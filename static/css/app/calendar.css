@@ -1,0 +1,56 @@
+.calendar{
+  position: absolute;
+  left: 32%;
+  top: 10%;
+
+  width: 60%;
+  height: 80%;
+
+  background-color: #BED8FB;
+  text-align: center;
+}
+.calendar table{
+  width: 100%;
+  height: 100%;
+
+  border: 10px solid #54596E;
+
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  color: #ffffff;
+}
+.calendar table td{
+  margin: 20px;
+  border: 15px solid #BED8FB;
+  background-color: #54596E;
+  color : #ffffff;
+  cursor: pointer;
+}
+.calendar table tr:nth-child(1){
+  background-color: #00B4D8;
+}
+.calendar table tr:nth-child(2){
+  background-color: #54596E;
+}
+.leftarrow{
+  /* left-arrow */
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 30px;
+  top:20px;
+  cursor: pointer;
+  filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(154deg) brightness(103%) contrast(101%);
+}
+.rightarrow{
+  /* left-arrow */
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 30px;
+  top: 20px;
+  cursor: pointer;
+  filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(154deg) brightness(103%) contrast(101%);
+}
