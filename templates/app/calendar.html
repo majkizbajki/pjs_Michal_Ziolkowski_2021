@@ -9,9 +9,11 @@
 
   {% block profile_block %}
     <div class="calendar">
-      {% if HTML_Calendar %}
-        {{ HTML_Calendar|safe }}
-      {% endif %}
+      <form method="post">
+        {% if HTML_Calendar %}
+          {{ HTML_Calendar|safe }}
+        {% endif %}
+      </form>
       <div class="leftarrow">
         <img src="{% static "img/app/left-arrow.svg" %}" alt="left arrow">
       </div>
@@ -45,11 +47,39 @@
       window.location.href = "decrease_month";
     })
 
+    var actuall_day = {{actuall_day}};
+    var actuall_month = {{actuall_month}};
+    var actuall_year = {{actuall_year}};
+    var date = new Date();
 
-    $(".calendar table td").on("click",function(){
-      if( $(this).attr("class")!="noday" ){
-        window.location.href = '{% url 'app:reservation' %}'
+    $('table td').each(function() {
+      if( actuall_year < date.getFullYear() ){
+        $("table td").css("color","red");
+      }
+      else{
+        if( actuall_month < date.getMonth()+1 ){
+          $(this).css("color","red");
+        }
+        else{
+          if( ($(this).text() < actuall_day) && (actuall_month == date.getMonth()+1) ){
+            $(this).css("color","red");
+          }
+          else{
+              $(this).css("color","#7CFC00");
+          }
+        }
+      }
+    });
+
+    var day;
+
+    $("table td").on("click",function(){
+      var today = {{actuall_day}}
+      console.log($(this).css("color"));
+      if($(this).css("color")=="rgb(124, 252, 0)"){
+        day = $(this).text();
+        window.location.href = "reservation/{{ actuall_year }}/{{ actuall_month }}/"+day+"/{{ type }}/";
       }
     })
-  <!-- Jquery script to color td to red/green when (not)available term -->
+
   {% endblock %}

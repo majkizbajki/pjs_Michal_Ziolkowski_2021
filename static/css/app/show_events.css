@@ -27,6 +27,17 @@
   border-collapse: collapse;
   border: 3px solid #54596E;
 }
+.events{
+    border: 3px solid #54596E;
+
+    background-color: #CBE2FF;
+    font-family: 'Cairo', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    text-align: center;
+    color: #54596E;
+}
 #table_info{
     height: 50px;
     width: 100%;
@@ -52,4 +63,18 @@
   font-size: 30px;
   text-align: center;
   color: #54596E;
+}
+input[type="submit"]{
+  cursor: pointer;
+  border: 0px;
+  border-radius: 20px;
+  width: 80%;
+
+  background-color: red;
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  text-align: center;
+  color: white;
 }

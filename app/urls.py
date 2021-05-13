@@ -21,8 +21,8 @@ urlpatterns = [
     path('profile/personal_data',views.personal_data,name='personal_data'),
     path('profile/change_password',views.change_password,name='change_password'),
     path('profile/show_events',views.show_events,name='show_events'),
-    path('profile/calendar',views.calendarView,name='calendar'),
+    path('profile/calendar',views.actuallCalendar,name='calendar'),
     path('profile/increase_month',views.increase_month,name='increase_month'),
     path('profile/decrease_month',views.decrease_month,name='decrease_month'),
-    path('profile/calendar/reservation',views.reservation,name='reservation'),
+    path('profile/reservation/<int:year>/<int:month>/<int:day>/<str:type>/',views.reservation,name='reservation'),
 ]

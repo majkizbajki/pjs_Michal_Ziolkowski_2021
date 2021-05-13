@@ -9,15 +9,32 @@
     <div class="events_panel_title">Twoje zaplanowane wizyty</div>
     <table>
       <tr id="table_info">
-        <td>Lekarz</td>
+        <td>Usługa</td>
         <td>Data</td>
         <td>Godzina</td>
         <td>Odwołaj</td>
       </tr>
       <!-- Create Django codition here -->
+      {% if events %}
+        {% for e in events %}
+        <tr class="events">
+          <td>{{e.service}}</td>
+          <td>{{e.date|date:"d-m-Y"}}</td>
+          <td>{{e.time|time:"H:i"}}</td>
+          <td>
+            <form class="delete_event" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="event_number" value="{{ forloop.counter0 }}">
+              <input type="submit" value="Odwołaj">
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      {% else %}
       <tr>
         <td colspan="4" id="no_events">Brak zaplanowanych wizyt</td>
       </tr>
+      {% endif %}
       <!-- End of condition -->
     </table>
   </div>

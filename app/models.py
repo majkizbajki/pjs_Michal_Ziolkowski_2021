@@ -32,7 +32,7 @@ class Servicetypes(models.Model):
 class Services(models.Model):
     name = models.CharField(max_length=200,unique=True)
     service_type = models.ForeignKey(Servicetypes,on_delete=models.CASCADE)
-    person = models.ForeignKey(Workers, on_delete=models.CASCADE)
+    person = models.ForeignKey(Workers,on_delete=models.CASCADE)
     price = models.IntegerField()
 
     def __str__(self):
@@ -59,10 +59,12 @@ class UserProfileInfo(models.Model):
         return self.user.get_full_name()
 
 class Event(models.Model):
-    title = models.ForeignKey(Services,on_delete=models.CASCADE)
-    doctor = models.ForeignKey(Workers,on_delete=models.CASCADE)
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
+    service = models.ForeignKey(Services,on_delete=models.CASCADE)
+    patient_fullname = models.CharField(max_length=200)
+    patient_username = models.CharField(max_length=200)
+    date = models.DateField()
+    time = models.TimeField()
+    queue = models.IntegerField(null=False)
 
     def __str__(self):
-      return self.title
+      return str(self.date)+" "+str(self.time)+" "+str(self.service)

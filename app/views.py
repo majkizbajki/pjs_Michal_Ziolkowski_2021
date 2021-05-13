@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from app.models import News, Services, UserProfileInfo, Event
+from django.shortcuts import render, redirect
+from app.models import News, Services, UserProfileInfo, Event, Workers
 from app.forms import UserForm, UserProfileInfoForm
 from app.models import User
 
@@ -150,7 +150,7 @@ def personal_data(request):
         else:
             error += "Niepoprawne nazwisko. "
             error_type = 1
-        if User.objects.filter(email=request_email).count() == 0 or user.email == request_email and "@" in request_email and "." in request_email:
+        if (User.objects.filter(email=request_email).count() == 0 or user.email == request_email) and ("@" in request_email and "." in request_email):
             user.email = request_email
         else:
             error += "Niepoprawny lub już istniejący email. "
@@ -197,18 +197,21 @@ def change_password(request):
 
         if user.check_password(current_password):
 
-            if new_password == repeat_password:
+            if len(new_password) > 0:
+                if new_password == repeat_password:
 
-                user.set_password(new_password)
-                user.save()
-                update_session_auth_hash(request, user)
+                    user.set_password(new_password)
+                    user.save()
+                    update_session_auth_hash(request, user)
 
-                error += "Zmiana hasła przebiegła pomyślnie."
-                error_type = 2
+                    error += "Zmiana hasła przebiegła pomyślnie."
+                    error_type = 2
 
+                else:
+                    error += "Wpisane hasła różnią się od siebie. "
+                    error_type = 1
             else:
-                error += "Wpisane hasła różnią się od siebie. "
-                error_type = 1
+                error += "Hasło musi zawierać conajmniej jeden znak."
         else:
             error += "Wprowadzone hasło nie jest zgodne z obecnym. "
             error_type = 1
@@ -217,45 +220,100 @@ def change_password(request):
                                                       "error_type":error_type})
 
 def show_events(request):
-    return render(request,"app/show_events.html")
+
+    events = Event.objects.filter(patient_username=request.user.username)
+    events_number = Event.objects.filter(patient_username=request.user.username).count()
+
+    if request.method == "POST":
+        request_event_number = request.POST.get("event_number")
+        events[int(request_event_number)].delete()
+        return redirect("/profile/show_events")
+
+    return render(request,"app/show_events.html",{"events":events,"events_number":events_number})
+
+def actuallCalendar(request):
+    cal.actuall_day = datetime.date.today().day
+    cal.actuall_month = datetime.date.today().month
+    cal.actuall_month_string = cal.months[cal.actuall_month]
+    cal.actuall_year = datetime.date.today().year
+
+    return calendarView(request)
 
 def calendarView(request):
-    actuall_day = cal.temp_day
-    actuall_month = cal.temp_month
-    actuall_month_string = cal.temp_month_string
-    actuall_year = cal.temp_year
+    actuall_day = cal.actuall_day
+    actuall_month = cal.actuall_month
+    actuall_month_string = cal.actuall_month_string
+    actuall_year = cal.actuall_year
+
     tc= HTMLCalendar(firstweekday=0)
 
-    return render(request,"app/calendar.html",{"actuall_day":cal.actuall_day,
-                                               "actuall_month":cal.actuall_month,
-                                               "actuall_month_string":cal.actuall_month_string,
-                                               "actuall_year":cal.actuall_year,
-                                               "HTML_Calendar":tc.formatmonth(cal.actuall_year, cal.actuall_month),
+    type = str(Services.objects.all()[0].name)
+
+    return render(request,"app/calendar.html",{"actuall_day":actuall_day,
+                                               "actuall_month":actuall_month,
+                                               "actuall_month_string":actuall_month_string,
+                                               "actuall_year":actuall_year,
+                                               "HTML_Calendar":tc.formatmonth(actuall_year, actuall_month),
+                                               "type": type,
                                                })
 
 def increase_month(request):
-    cal.temp_day = 1
     cal.increase_month()
-    cal.temp_month_string = cal.months[cal.temp_month]
-    tc= HTMLCalendar(firstweekday=0)
-    return render(request,"app/calendar.html",{"actuall_day":cal.temp_day,
-                                               "actuall_month":cal.temp_month,
-                                               "actuall_month_string":cal.temp_month_string,
-                                               "actuall_year":cal.temp_year,
-                                               "HTML_Calendar":tc.formatmonth(cal.temp_year, cal.temp_month),
-                                               })
+    return calendarView(request)
 
 def decrease_month(request):
-    cal.temp_day = 1
     cal.decrease_month()
-    cal.temp_month_string = cal.months[cal.temp_month]
-    tc= HTMLCalendar(firstweekday=0)
-    return render(request,"app/calendar.html",{"actuall_day":cal.temp_day,
-                                               "actuall_month":cal.temp_month,
-                                               "actuall_month_string":cal.temp_month_string,
-                                               "actuall_year":cal.temp_year,
-                                               "HTML_Calendar":tc.formatmonth(cal.temp_year, cal.temp_month),
-                                               })
+    return calendarView(request)
 
-def reservation(request):
-    return render(request,"app/reservation.html",{})
+def reservation(request,year,month,day,type):
+
+    u = request.user
+    user = User.objects.get(username=u.username)
+    services = Services.objects.all()
+
+    year = str(year)
+    month = str(month)
+    if len(month)==1:
+        month = "0"+str(month)
+    day = str(day)
+    if len(day)==1:
+        day = "0"+str(day)
+
+    actuall_date = year+"-"+month+"-"+day
+    events = Event.objects.filter(date=actuall_date);
+    events_type = type
+
+    available_hours = {1:"9:00:00",2:"10:00:00",3:"11:00:00",4:"12:00:00",5:"13:00:00",6:"14:00:00",7:"15:00:00",8:"16:00:00"}
+
+    for j in events:
+        if j.queue in available_hours and str(j.service) == type:
+            available_hours.pop(j.queue)
+
+    if request.method == "POST":
+        if request.POST.get("available_hours")!=None:
+            request_service = request.POST.get("services")
+            service_object = Services.objects.filter(name=request_service).first()
+
+            request_actuall_date = request.POST.get("actuall_date")
+            request_actuall_date = datetime.datetime.strptime(request_actuall_date,'%Y-%m-%d')
+
+            request_available_hours = request.POST.get("available_hours")
+            request_time = datetime.datetime.strptime(request_available_hours,'%H:%M:%S')
+
+            request_fullname = user.first_name+" "+user.last_name
+
+            get_key = 0
+            for key, value in available_hours.items():
+                if request_available_hours == value:
+                    get_key = key
+
+            new_event = Event(service=service_object,patient_fullname=request_fullname,patient_username=u.username,date=request_actuall_date,time=request_time,queue=get_key)
+            new_event.save()
+
+            return redirect("/profile/calendar")
+
+    return render(request,"app/reservation.html",{"actuall_date":actuall_date,
+                                                  "available_hours":available_hours.values(),
+                                                  "services":services,
+                                                  "type": events_type,
+                                                  })

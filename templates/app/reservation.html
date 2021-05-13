@@ -1,5 +1,42 @@
 {% extends "app/profile.html" %}
 {% load static %}
-{% block body_block %}
+  {% block head_block %}
+    <link rel="stylesheet" href="{% static "css/app/profile.css" %}">
+    <link rel="stylesheet" href="{% static "css/app/reservation.css" %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  {% endblock %}
+  {% block profile_block %}
+    <div class="form_div">
+      <h1>Rezerwacja wizyty</h1>
+      <form class="reservation_form" method="POST">
+        {% csrf_token %}
 
-{% endblock %}
+        <select class="services" name="services">
+          {% for s in services %}
+            {% if s.name == type %}
+              <option value="{{ s.name }}" selected>{{ s.name }}</option>
+            {% else %}
+              <option value="{{ s.name }}">{{ s.name }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+
+        <input type="text" name="actuall_date" value="{{actuall_date}}" readonly>
+
+        <select class="available_hours" name="available_hours">
+          {% for a in available_hours %}
+            <option value="{{ a }}">{{ a|slice:":-3" }}</option>
+          {% endfor %}
+        </select>
+
+        <input type="submit" value="Rezerwuję">
+      </form>
+    </div>
+  {% endblock %}
+  {% block script_block %}
+  let selectedValue = "";
+  $('.services').on('change', function() {
+    selectedValue = this.value;
+    window.location.href = "../"+selectedValue;
+  });
+  {% endblock %}
