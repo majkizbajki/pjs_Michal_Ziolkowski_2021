@@ -12,6 +12,8 @@ import datetime
 from calendar import HTMLCalendar
 from app.utils import Calendar, cal
 
+from django.core.mail import send_mail
+
 # Create your views here.
 def index(request):
     news_info = News.objects.order_by('date')
@@ -309,6 +311,13 @@ def reservation(request,year,month,day,type):
 
             new_event = Event(service=service_object,patient_fullname=request_fullname,patient_username=u.username,date=request_actuall_date,time=request_time,queue=get_key)
             new_event.save()
+
+            send_mail(
+                'Potwierdzenie rezerwacji w Opti+',
+                'Twoja rezerwacja ('+request_service+') w dniu '+str(request_actuall_date)[:10]+' o godzinie '+request_available_hours+' została potwierdzona.',
+                'optipluspl@gmail.com',
+                [str(user.email)],
+                )
 
             return redirect("/profile/calendar")
 

@@ -61,7 +61,7 @@
           $(this).css("color","red");
         }
         else{
-          if( ($(this).text() < actuall_day) && (actuall_month == date.getMonth()+1) ){
+          if( ($(this).text() <= actuall_day) && (actuall_month == date.getMonth()+1) ){
             $(this).css("color","red");
           }
           else{
